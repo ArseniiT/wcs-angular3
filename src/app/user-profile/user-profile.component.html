@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-photo">
+        <img [src]="user.photo" alt="" srcset="">
+    </div>
+    <div class="card-bio">
+        <div class="bio-left">
+            <div class="name">
+                <h3>Name: {{user.name}}</h3>
+            </div>
+            <div class="name">
+                <h3>Prénom: {{user.firstName}}</h3>
+            </div>
+            <div class="name">
+                <p>{{user.quote | slice:0:27}}</p>
+                <input type="text" [(ngModel)]="user.quote">
+            </div>
+        </div>
+        <div class="bio-right">
+            <div *ngIf="isUserAgeVisible" class="name">
+                <p>Age: {{user.age}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-bottom">
+        <button type="button" (click)="toggleAge()">{{isUserAgeVisible ? 'Masquer' : 'Afficher'}} mon age</button>
+    </div>
+</div>
